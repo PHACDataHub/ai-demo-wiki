@@ -22,26 +22,24 @@ app.get('/', async (req, res) => {
         name="description"
         content="Web site created using create-react-app"
       />
-      <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-      <!--
-        manifest.json provides metadata used when your web app is installed on a
-        user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-      -->
-      <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
       <title>Portail DPI Portal</title>
-      <!-- Widget JavaScript bundle -->
-  <script src="https://cloud.google.com/ai/gen-app-builder/client?hl=en_US"></script>
-  
-  <!-- Search widget element is not visible by default -->
-  <gen-search-widget
-    configId="e9a146aa-2908-4896-a424-d21837c24d46"
-    location="us"
-    triggerId="searchWidgetTrigger">
-  </gen-search-widget>
     </head>
     <body>
-      <noscript>You need to enable JavaScript to run this app.</noscript>
-      <div id="root"></div>
+      
+      <div id="root">
+      <!-- Widget JavaScript bundle -->
+      <script src="https://cloud.google.com/ai/gen-app-builder/client?hl=en_US"></script>
+
+      <!-- Search widget element is not visible by default -->
+      <gen-search-widget
+        configId="e9a146aa-2908-4896-a424-d21837c24d46"
+        location="us"
+        triggerId="searchWidgetTrigger">
+      </gen-search-widget>
+
+      <!-- Element that opens the widget on click. It does not have to be an input -->
+      <input placeholder="Search here" id="searchWidgetTrigger" />
+      </div>
     </body>
   </html>`;
 
