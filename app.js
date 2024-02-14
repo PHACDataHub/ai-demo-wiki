@@ -1,32 +1,45 @@
-// Copyright 2021 Google LLC
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 import express from 'express';
 import {pinoHttp, logger} from './utils/logging.js';
 
 const app = express();
 
-// Use request-based logger for log correlation
 app.use(pinoHttp);
 
-// Example endpoint
 app.get('/', async (req, res) => {
-  // Use basic logger without HTTP request info
-  logger.info({logField: 'custom-entry', arbitraryField: 'custom-entry'}); // Example of structured logging
-  // Use request-based logger with log correlation
-  req.log.info('Child logger with trace Id.'); // https://cloud.google.com/run/docs/logging#correlate-logs
-  res.send('Hello World!');
+  logger.info({logField: 'custom-entry', arbitraryField: 'custom-entry'});
+  req.log.info('Child logger with trace Id.');
+
+  // Define the HTML content to be returned
+  const htmlContent = `
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>Portail DPI Portal</title>
+    <script src="https://cloud.google.com/ai/gen-app-builder/client?hl=en_US"></script>
+    <gen-search-widget
+      configId="e9a146aa-2908-4896-a424-d21837c24d46"
+      location="us"
+      triggerId="searchWidgetTrigger">
+    </gen-search-widget>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>`;
+
+  // Use res.send() to return the HTML content
+  res.send(htmlContent);
 });
 
 export default app;
