@@ -33,7 +33,9 @@ app.get('/', async (req, res) => {
       />
       <title>Portail DPI Portal</title>
     </head>
-    <body>
+    <body style={{
+      alignItems: 'center'
+    }}>
       
       <Row>
       <Col>
