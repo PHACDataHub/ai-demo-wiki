@@ -20,11 +20,13 @@
   "author": "Google LLC",
   "license": "Apache-2.0",
   "dependencies": {
+    "@emotion/react": "^11.11.3",
     "express": "^4.17.1",
     "gcp-metadata": "^6.0.0",
     "google-auth-library": "^9.0.0",
     "pino": "^8.0.0",
-    "pino-http": "^9.0.0"
+    "pino-http": "^9.0.0",
+    "reactstrap": "^9.2.2"
   },
   "devDependencies": {
     "eslint": "^8.0.0",
