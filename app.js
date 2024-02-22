@@ -61,9 +61,12 @@ app.get('/', async (req, res) => {
 </head>
 <body>
     <div>
-        <h1>Référentiel d'informations sur l'équipe de surveillance | Surveillance Team Information Repository</h1>
+        <h1>Wiki DPI | DPI Wiki</h1>
         <script src="https://cloud.google.com/ai/gen-app-builder/client?hl=en_US"></script>
-        <gen-search-widget configId="e9a146aa-2908-4896-a424-d21837c24d46" location="us" triggerId="searchWidgetTrigger"></gen-search-widget>
+<gen-search-widget
+  configId="913abd49-263c-42b7-809f-0609014c60c7"
+  triggerId="searchWidgetTrigger">
+</gen-search-widget>
         <div class="info-text">
         <input placeholder="Poser une question | Ask a question" id="searchWidgetTrigger" />
         </div>
